@@ -259,12 +259,12 @@ export default function ImageToTextTool() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-8">
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
       {/* Title Header Section */}
-      <div className="text-center mb-10 space-y-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-500/30 bg-blue-950/20 text-blue-400 text-sm font-medium animate-pulse">
-          <Sparkles className="w-4 h-4" />
-          <span>Simulated OCR Web Application</span>
+      <div className="text-center mb-8 sm:mb-10 space-y-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-500/30 bg-blue-950/20 text-blue-400 text-sm font-medium">
+          <Sparkles className="w-4 h-4 animate-pulse" />
+          <span>Active OCR Web Application</span>
         </div>
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500 bg-clip-text text-transparent">
           Image to Text Converter
@@ -275,7 +275,7 @@ export default function ImageToTextTool() {
       </div>
 
       {/* Main Grid: Upload & Result */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
         
         {/* Left Side: Upload & Configuration */}
         <div className="bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden group">
@@ -379,14 +379,14 @@ export default function ImageToTextTool() {
               <Languages className="w-4 h-4 text-blue-500" />
               OCR Language Selection
             </label>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
               {LANGUAGES.map((lang) => (
                 <button
                   key={lang.code}
                   type="button"
                   onClick={() => setLanguage(lang.code)}
                   disabled={isProcessing}
-                  className={`py-2 px-3 rounded-xl border text-sm font-medium flex items-center justify-center gap-2 transition-all ${
+                  className={`py-2 px-1 sm:px-3 rounded-xl border text-xs sm:text-sm font-medium flex items-center justify-center gap-1 sm:gap-2 transition-all ${
                     language === lang.code
                       ? "border-blue-500 bg-blue-600/10 text-blue-400"
                       : "border-slate-800 bg-slate-950/40 text-slate-400 hover:border-slate-700 hover:text-slate-300"
@@ -470,13 +470,13 @@ export default function ImageToTextTool() {
           </div>
 
           {/* Bottom Actions for Text Area */}
-          <div className="mt-4 pt-4 border-t border-slate-800 flex items-center justify-end gap-3">
+          <div className="mt-4 pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-stretch sm:items-center sm:justify-end gap-3">
             {/* Copy Button */}
             <button
               type="button"
               onClick={handleCopy}
               disabled={!extractedText || isProcessing}
-              className={`py-2.5 px-4 rounded-xl border text-sm font-medium flex items-center gap-2 transition-all ${
+              className={`py-2.5 px-4 rounded-xl border text-sm font-medium flex items-center justify-center gap-2 transition-all w-full sm:w-auto ${
                 extractedText && !isProcessing
                   ? isCopied
                     ? "border-green-500/30 bg-green-950/10 text-green-400"
@@ -493,7 +493,7 @@ export default function ImageToTextTool() {
               type="button"
               onClick={handleDownload}
               disabled={!extractedText || isProcessing}
-              className={`py-2.5 px-4 rounded-xl text-sm font-medium flex items-center gap-2 transition-all ${
+              className={`py-2.5 px-4 rounded-xl text-sm font-medium flex items-center justify-center gap-2 transition-all w-full sm:w-auto ${
                 extractedText && !isProcessing
                   ? "bg-blue-600 hover:bg-blue-500 text-white hover:shadow-lg hover:shadow-blue-500/10 active:scale-95 cursor-pointer"
                   : "bg-slate-800/40 text-slate-600 cursor-not-allowed"
